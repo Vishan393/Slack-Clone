@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link href="styles.css" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slack Clone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <svg
+          width="100"
+          class="slack-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 240 60"
+          shape-rendering="geometricPrecision"
+        >
+          <title>Slack</title>
+          <path
+            d="m75.663 47.477 2.929-6.846c3.207 2.375 7.39 3.632 11.574 3.632 3.068 0 5.02-1.187 5.02-3.003-.07-5.03-18.477-1.118-18.617-13.764-.07-6.427 5.648-11.387 13.737-11.387 4.81 0 9.622 1.188 13.038 3.913l-2.737 6.992c-3.143-2.021-7.025-3.43-10.72-3.43-2.51 0-4.184 1.187-4.184 2.725.07 4.96 18.618 2.235 18.827 14.322 0 6.567-5.579 11.178-13.528 11.178-5.856 0-11.225-1.397-15.34-4.332m116.629-9.325a8.498 8.498 0 0 1 -7.405 4.33c-4.698 0-8.506-3.816-8.506-8.523s3.808-8.523 8.506-8.523a8.498 8.498 0 0 1 7.405 4.33l8.143-4.52c-3.05-5.451-8.868-9.137-15.548-9.137-9.839 0-17.815 7.991-17.815 17.85 0 9.858 7.976 17.85 17.815 17.85 6.68 0 12.498-3.686 15.548-9.137zm-82.477 12.958h10.18v-49.86h-10.179zm95.761-49.86v49.86h10.18v-14.938l12.063 14.938h13.012l-15.34-17.746 14.224-16.559h-12.454l-11.505 13.767v-29.322zm-54.218 15.557v4.053c-1.673-2.795-5.787-4.751-10.11-4.751-8.925 0-15.967 7.895-15.967 17.815s7.042 17.885 15.967 17.885c4.323 0 8.437-1.956 10.11-4.751v4.052h10.18v-34.303zm0 21.414c-1.464 2.445-4.532 4.26-7.948 4.26-4.699 0-8.507-3.815-8.507-8.522s3.808-8.523 8.507-8.523c3.416 0 6.484 1.886 7.948 4.4z"
+          ></path>
+          <path
+            d="m21.902.148c-3.299 0-5.973 2.68-5.973 5.985a5.979 5.979 0 0 0 5.973 5.985h5.974v-5.985a5.98 5.98 0 0 0 -5.974-5.985m0 15.96h-15.929c-3.299 0-5.973 2.68-5.973 5.986 0 3.305 2.674 5.985 5.973 5.985h15.93c3.298 0 5.973-2.68 5.973-5.985 0-3.306-2.675-5.986-5.974-5.986"
+            fill="#36C5F0"
+          ></path>
+          <path
+            d="m59.734 22.094c0-3.306-2.675-5.986-5.974-5.986s-5.973 2.68-5.973 5.986v5.985h5.973a5.98 5.98 0 0 0 5.974-5.985m-15.929 0v-15.961a5.98 5.98 0 0 0 -5.974-5.985c-3.299 0-5.973 2.68-5.973 5.985v15.96c0 3.307 2.674 5.987 5.973 5.987a5.98 5.98 0 0 0 5.974-5.985"
+            fill="#2EB67D"
+          ></path>
+          <path
+            d="m37.831 60a5.98 5.98 0 0 0 5.974-5.985 5.98 5.98 0 0 0 -5.974-5.985h-5.973v5.985c0 3.305 2.674 5.985 5.973 5.985m0-15.96h15.93c3.298 0 5.973-2.68 5.973-5.986a5.98 5.98 0 0 0 -5.974-5.985h-15.929c-3.299 0-5.973 2.68-5.973 5.985a5.979 5.979 0 0 0 5.973 5.985"
+            fill="#ECB22E"
+          ></path>
+          <g>
+            <path
+              d="m0 38.054a5.979 5.979 0 0 0 5.973 5.985 5.98 5.98 0 0 0 5.974-5.985v-5.985h-5.974c-3.299 0-5.973 2.68-5.973 5.985m15.929 0v15.96c0 3.306 2.674 5.986 5.973 5.986a5.98 5.98 0 0 0 5.974-5.985v-15.961a5.979 5.979 0 0 0 -5.974-5.985c-3.299 0-5.973 2.68-5.973 5.985"
+              fill="#E01E5A"
+            ></path>
+          </g>
+        </svg>
+        <div class="tab product-tab">
+          <p>Product</p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="down-icon"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <div class="tab">Solutions</div>
+        <div class="tab">Enterprise</div>
+        <div class="tab">Resources</div>
+        <div class="tab">Pricing</div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="search-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+        <div class="tab tab-sign">Sign in</div>
+        <a href="#" class="btn btn-sales">TALK TO SALES</a>
+        <a href="#" class="btn btn-free">TRY FOR FREE</a>
+      </nav>
+      <section class="container-2 blue-bar">
+        <a href="#" class="blue-bar-link"
+          ><p class="apply-content">
+            <span class="apply-content-first"
+              >What will you build on the new Slack platform?</span
+            >
+            Unlock the latest developer tools.<span class="apply-link"
+              >Apply for beta</span
+            ><span>&#x2192;</span>
+          </p>
+          <svg
+            class="x-blue"
+            width="10"
+            height="10"
+            viewBox="0 0 23 23"
+            fill="none"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              fill="white"
+              d="M9.34583 11.2L0.384011 2.23818C-0.128004 1.72617 -0.128004 0.896026 0.384011 0.384011C0.896026 -0.128004 1.72617 -0.128004 2.23818 0.384011L11.2 9.34583L20.1618 0.384011C20.6738 -0.128004 21.504 -0.128004 22.016 0.384011C22.528 0.896026 22.528 1.72617 22.016 2.23818L13.0542 11.2L22.016 20.1618C22.528 20.6738 22.528 21.504 22.016 22.016C21.504 22.528 20.6738 22.528 20.1618 22.016L11.2 13.0542L2.23818 22.016C1.72617 22.528 0.896026 22.528 0.384011 22.016C-0.128003 21.504 -0.128003 20.6738 0.384011 20.1618L9.34583 11.2Z"
+            ></path></svg
+        ></a>
+      </section>
+      <section class="container call-to-action">
+        <div class="action-content">
+          <h1>Slack is your digital HQ</h1>
+          <p class="action-p">
+            Transform the way you work with one place for everyone and
+            everything you need to get stuff done.
+          </p>
+          <div class="btn-action">
+            <a class="btn btn-free-action" href="#">TRY FOR FREE</a>
+            <a class="btn btn-google" href="#">
+              <div class="google">
+                <svg
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 48 48"
+                  class="google-icon"
+                >
+                  <g>
+                    <path
+                      fill="#EA4335"
+                      d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+                    ></path>
+                    <path
+                      fill="#4285F4"
+                      d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+                    ></path>
+                    <path
+                      fill="#FBBC05"
+                      d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+                    ></path>
+                    <path
+                      fill="#34A853"
+                      d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+                    ></path>
+                    <path fill="none" d="M0 0h48v48H0z"></path>
+                  </g>
+                </svg>
+              </div>
+              SIGN UP WITH GOOGLE</a
+            >
+          </div>
+        </div>
+        <img
+          src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/hero/img-campaign-hero.jpg"
+          srcset="
+            https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/hero/img-campaign-hero.jpg    1x,
+            https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/hero/img-campaign-hero@2x.jpg 2x
+          "
+          alt="Team doing work using the Slack App"
+        />
+      </section>
+      <section class="container featured-companies">
+        <a href="#"
+          ><img
+            alt="Fox"
+            height="37"
+            loading="lazy"
+            class="icon fox-icon"
+            data-src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/fox.png"
+            data-srcset="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/fox.png 1x, https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/fox@2x.png 2x"
+            src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/fox.png"
+            srcset="
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/fox.png    1x,
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/fox@2x.png 2x
+            "
+        /></a>
+        <a href="#"
+          ><img
+            alt="Lonely Planet"
+            height="37"
+            loading="lazy"
+            class="icon lonely-icon"
+            data-src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/lonelyplanet.png"
+            data-srcset="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/lonelyplanet.png 1x, https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/lonelyplanet@2x.png 2x"
+            src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/lonelyplanet.png"
+            srcset="
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/lonelyplanet.png    1x,
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/lonelyplanet@2x.png 2x
+            "
+        /></a>
+        <a href="#"
+          ><img
+            alt="Intuit"
+            height="37"
+            loading="lazy"
+            class="icon intuit-icon"
+            data-src="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/intuit.png"
+            data-srcset="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/intuit.png 1x, https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/intuit@2x.png 2x"
+            src="https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/intuit.png"
+            srcset="
+              https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/intuit.png    1x,
+              https://a.slack-edge.com/e2fa17/marketing/img/logos/company/_color/intuit@2x.png 2x
+            "
+        /></a>
+        <a href="#"
+          ><img
+            alt="Carvana"
+            height="37"
+            loading="lazy"
+            class="icon carvana-icon"
+            data-src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/carvana.png"
+            data-srcset="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/carvana.png 1x, https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/carvana@2x.png 2x"
+            src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/carvana.png"
+            srcset="
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/carvana.png    1x,
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/carvana@2x.png 2x
+            "
+        /></a>
+        <a href="#"
+          ><img
+            alt="Kiva"
+            height="37"
+            loading="lazy"
+            class="icon kiva-icon"
+            data-src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/kiva.png"
+            data-srcset="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/kiva.png 1x, https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/kiva@2x.png 2x"
+            src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/kiva.png"
+            srcset="
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/kiva.png    1x,
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/kiva@2x.png 2x
+            "
+        /></a>
+        <a href="#"
+          ><img
+            style="max-width: 50px"
+            alt="Target"
+            height="37"
+            loading="lazy"
+            class="icon target-icon"
+            data-src="https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo.png"
+            data-srcset="https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo.png 1x, https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo@2x.png 2x"
+            src="https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo.png"
+            srcset="
+              https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo.png    1x,
+              https://a.slack-edge.com/80588/marketing/img/logos/company/_color/target-logo@2x.png 2x
+            "
+        /></a>
+        <a href="#"
+          ><img
+            alt="DevaCurl"
+            height="37"
+            loading="lazy"
+            class="icon deva-icon"
+            data-src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/devacurl.png"
+            data-srcset="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/devacurl.png 1x, https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/devacurl@2x.png 2x"
+            src="https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/devacurl.png"
+            srcset="
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/devacurl.png    1x,
+              https://a.slack-edge.com/ce67d/marketing/img/logos/company/_color/devacurl@2x.png 2x
+            "
+        /></a>
+      </section>
+      <section class="container video-section">
+        <a href="#" class="video">
+          <div class="youtube-button">
+            <svg
+              width="84"
+              height="60"
+              class="youtube-icon"
+              aria-hidden=""
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g fill="none" transform="translate(0 .564)">
+                <rect height="59" rx="4" width="84"></rect>
+                <path d="M49 29.95L35 36.9V23L49 29.95Z" fill="#fff"></path>
+              </g>
+            </svg>
+          </div>
+          <img
+            class="youtube-video"
+            alt="Video about building the future of work today"
+            loading="lazy"
+            data-src="https://a.slack-edge.com/b7cc858/marketing/img/homepage/self-serve-campaign/inline-images/video-thumbnail.jpg"
+            data-srcset="https://a.slack-edge.com/b7cc858/marketing/img/homepage/self-serve-campaign/inline-images/video-thumbnail.jpg 1x, https://a.slack-edge.com/b7cc858/marketing/img/homepage/self-serve-campaign/inline-images/video-thumbnail@2x.jpg 2x"
+            src="https://a.slack-edge.com/b7cc858/marketing/img/homepage/self-serve-campaign/inline-images/video-thumbnail.jpg"
+            srcset="
+              https://a.slack-edge.com/b7cc858/marketing/img/homepage/self-serve-campaign/inline-images/video-thumbnail.jpg    1x,
+              https://a.slack-edge.com/b7cc858/marketing/img/homepage/self-serve-campaign/inline-images/video-thumbnail@2x.jpg 2x
+            "
+        /></a>
+        <div class="video-content">
+          <h2 class="video-h2">
+            Now is your moment to build a better tomorrow
+          </h2>
+          <p class="video-text">
+            We’ve seen what the future can be. Now it’s time to decide what it
+            will be.
+          </p>
+          <a href="#" class="btn btn-video">WATCH VIDEO</a>
+        </div>
+      </section>
+      <section class="container channels-section">
+        <div class="channels-info">
+          <h2>Move faster by organizing your work life</h2>
+          <p class="channel-text">
+            The key to productivity in Slack is organized spaces called
+            channels—a different one for everything you’re working on. With all
+            the people, messages and files related to a topic in one place, you
+            can move a whole lot faster.
+          </p>
+          <a href="#" class="animation-link"
+            >Learn more about channels &#x2192;
+          </a>
+          <div class="channels-videos">
+            <svg
+              width="63"
+              height="44.25"
+              class="youtube-play-icon youtube-channel-icon-1"
+              aria-hidden=""
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- HAD TO CHANGE TRANSLATION -->
+              <g fill="none" transform="translate(0 0)">
+                <rect height="44.25" rx="4" width="63"></rect>
+                <path
+                  class="youtube-triangle"
+                  d="M49 29.95L35 36.9V23L49 29.95Z"
+                  fill="#fff"
+                ></path>
+              </g>
+            </svg>
+            <img
+              class="channel-video channel-video-1"
+              alt="Video defining channels in Slack"
+              loading="lazy"
+              data-src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/what-are-channels.IN.jpg"
+              data-srcset="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/what-are-channels.IN.jpg 1x, https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/what-are-channels.IN@2x.jpg 2x"
+              src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/what-are-channels.IN.jpg"
+              srcset="
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/what-are-channels.IN.jpg    1x,
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/what-are-channels.IN@2x.jpg 2x
+              "
+            />
+            <div class="description-time">
+              <p class="channel-time">What is a channel?</p>
+              <span>0:15</span>
+            </div>
+            <svg
+              width="63"
+              height="44.25"
+              class="youtube-play-icon youtube-channel-icon-2"
+              aria-hidden=""
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- HAD TO CHANGE TRANSLATION -->
+              <g fill="none" transform="translate(0 0)">
+                <rect height="44.25" rx="4" width="63"></rect>
+                <path
+                  class="youtube-triangle"
+                  d="M49 29.95L35 36.9V23L49 29.95Z"
+                  fill="#fff"
+                ></path>
+              </g>
+            </svg>
+            <img
+              class="channel-video channel-video-2"
+              alt="Video about creating your own channels"
+              loading="lazy"
+              data-src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/create-a-channel.IN.jpg"
+              data-srcset="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/create-a-channel.IN.jpg 1x, https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/create-a-channel.IN@2x.jpg 2x"
+              src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/create-a-channel.IN.jpg"
+              srcset="
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/create-a-channel.IN.jpg    1x,
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/create-a-channel.IN@2x.jpg 2x
+              "
+            />
+            <div class="description-time">
+              <p class="channel-time">How to create a channel</p>
+              <span>0:15</span>
+            </div>
+          </div>
+        </div>
+        <video
+          class="yarn-animation"
+          aria-describedby="move-faster"
+          autoplay=""
+          loop=""
+          muted=""
+          playsinline=""
+          poster="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/inline-images/static/img-section-01-static.jpg"
+        >
+          <source
+            src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/inline-images/video/img-hp-section-01.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </section>
+      <section class="container focus-section">
+        <div class="folder-animation">
+          <video
+            class="folder-video"
+            aria-describedby="focus-time"
+            autoplay=""
+            loop=""
+            muted=""
+            playsinline=""
+            poster="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/inline-images/static/img-section-02-static.jpg"
+          >
+            <source
+              src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/inline-images/video/img-hp-section-02.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <div class="focus-content">
+          <h2>Focus your time, on your own terms</h2>
+          <p class="focus-text">
+            Give yourself the flexibility to work when, where and how you work
+            best. Take control of notifications, collaborate live or on your own
+            time, and find answers in conversations from across your company.
+          </p>
+          <a href="#" class="animation-link"
+            >Support a more flexible work schedule in Slack &#x2192;</a
+          >
+          <div class="channels-videos focus-videos">
+            <svg
+              width="63"
+              height="44.25"
+              class="youtube-play-icon youtube-channel-icon-1"
+              aria-hidden=""
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- HAD TO CHANGE TRANSLATION -->
+              <g fill="none" transform="translate(0 0)">
+                <rect height="44.25" rx="4" width="63"></rect>
+                <path
+                  class="youtube-triangle"
+                  d="M49 29.95L35 36.9V23L49 29.95Z"
+                  fill="#fff"
+                ></path>
+              </g>
+            </svg>
+            <img
+              class="focus-youtube-video"
+              alt="Video describing Do Not Disturb mode in Slack"
+              loading="lazy"
+              data-src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/pause-notifications.IN.jpg"
+              data-srcset="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/pause-notifications.IN.jpg 1x, https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/pause-notifications.IN@2x.jpg 2x"
+              src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/pause-notifications.IN.jpg"
+              srcset="
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/pause-notifications.IN.jpg    1x,
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/pause-notifications.IN@2x.jpg 2x
+              "
+            />
+
+            <div class="description-time">
+              <p class="channel-time">How to pause notifications</p>
+              <span>0:15</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="container simplify-section channels-section">
+        <div class="simpify-info channels-info">
+          <h2 class="simplify-h2">Simplify teamwork for everyone</h2>
+          <p class="simplify-text channel-text">
+            Give everyone you work with—inside and outside your company—a more
+            productive way to stay in sync. Respond faster with emoji, keep
+            conversations focused in channels, and simplify all your
+            communication into one place.
+          </p>
+          <a href="#" class="animation-link"
+            >Learn how to work with external partners in Slack &#x2192;
+          </a>
+          <div class="simplify-videos channels-videos">
+            <svg
+              width="63"
+              height="44.25"
+              class="youtube-play-icon youtube-channel-icon-1"
+              aria-hidden=""
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- HAD TO CHANGE TRANSLATION -->
+              <g fill="none" transform="translate(0 0)">
+                <rect height="44.25" rx="4" width="63"></rect>
+                <path
+                  class="youtube-triangle"
+                  d="M49 29.95L35 36.9V23L49 29.95Z"
+                  fill="#fff"
+                ></path>
+              </g>
+            </svg>
+            <img
+              class="simplify-video-1 channel-video channel-video-1"
+              alt="Video about how to add external partners to a channel"
+              loading="lazy"
+              data-src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/add-external-partners-to-a-channel.IN.jpg"
+              data-srcset="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/add-external-partners-to-a-channel.IN.jpg 1x, https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/add-external-partners-to-a-channel.IN@2x.jpg 2x"
+              src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/add-external-partners-to-a-channel.IN.jpg"
+              srcset="
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/add-external-partners-to-a-channel.IN.jpg    1x,
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/add-external-partners-to-a-channel.IN@2x.jpg 2x
+              "
+            />
+            <div class="description-time">
+              <p class="channel-time">
+                Work with external partners using Slack Connect
+              </p>
+              <span>0:15</span>
+            </div>
+            <svg
+              width="63"
+              height="44.25"
+              class="youtube-play-icon youtube-channel-icon-2"
+              aria-hidden=""
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- HAD TO CHANGE TRANSLATION -->
+              <g fill="none" transform="translate(0 0)">
+                <rect height="44.25" rx="4" width="63"></rect>
+                <path
+                  class="youtube-triangle"
+                  d="M49 29.95L35 36.9V23L49 29.95Z"
+                  fill="#fff"
+                ></path>
+              </g>
+            </svg>
+            <img
+              class="simplify-video-2 channel-video channel-video-2"
+              alt="Video describing how to gather ideas using Slack"
+              loading="lazy"
+              data-src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/brainstorm-in-a-channel.IN.jpg"
+              data-srcset="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/brainstorm-in-a-channel.IN.jpg 1x, https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/brainstorm-in-a-channel.IN@2x.jpg 2x"
+              src="https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/brainstorm-in-a-channel.IN.jpg"
+              srcset="
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/brainstorm-in-a-channel.IN.jpg    1x,
+                https://a.slack-edge.com/b0cad44/marketing/img/homepage/self-serve-campaign/video-thumbs/brainstorm-in-a-channel.IN@2x.jpg 2x
+              "
+            />
+            <div class="description-time">
+              <p class="channel-time">How to brainstorm in a channel</p>
+              <span>0:15</span>
+            </div>
+          </div>
+        </div>
+        <video
+          class="simplify-animation yarn-animation"
+          aria-describedby="simplify-teamwork"
+          autoplay=""
+          loop=""
+          muted=""
+          playsinline=""
+          poster="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/inline-images/static/img-section-03-static.jpg"
+        >
+          <source
+            src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/inline-images/video/img-hp-section-03.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </section>
+      <div class="main-content">
+        <section class="container starter-section">
+          <h2 class="headline">Get started with Slack</h2>
+          <div class="headline-content">
+            <ul>
+              <li class="number-icon"><strong>1</strong></li>
+              <li><span class="list-title">Sign up</span></li>
+              <li>
+                <a href="#" class="slack-link">Create a new Slack workspace</a>
+                <p class="list-text">
+                  in just a few moments. It’s free to try for teams of any size.
+                </p>
+              </li>
+            </ul>
+            <ul>
+              <li class="number-icon"><strong>2</strong></li>
+              <li><span class="list-title">Invite your coworkers</span></li>
+              <li>
+                <p class="list-text">
+                  Slack is better together (no, really, it’s a bit underwhelming
+                  by yourself), and it’s easy to invite your team.
+                </p>
+              </li>
+            </ul>
+            <ul>
+              <li class="number-icon"><strong>3</strong></li>
+              <li><span class="list-title">Try it out</span></li>
+              <li>
+                <p class="list-text">
+                  Run a project, coordinate with your team, or just talk it out.
+                  Slack is a blank canvas for teamwork.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="container card-section">
+          <!-- <div class="card-background"> -->
+          <div class="card">
+            <div class="card-image-holder">
+              <img
+                alt="Slack app used on a phone"
+                loading="lazy"
+                class="card-image"
+                data-src="https://a.slack-edge.com/db0aea0/marketing/img/homepage/self-serve-campaign/promos/img-promo-what-is-slack.jpg"
+                data-srcset="https://a.slack-edge.com/db0aea0/marketing/img/homepage/self-serve-campaign/promos/img-promo-what-is-slack.jpg 1x, https://a.slack-edge.com/db0aea0/marketing/img/homepage/self-serve-campaign/promos/img-promo-what-is-slack@2x.jpg 2x"
+                src="https://a.slack-edge.com/db0aea0/marketing/img/homepage/self-serve-campaign/promos/img-promo-what-is-slack.jpg"
+                srcset="
+                  https://a.slack-edge.com/db0aea0/marketing/img/homepage/self-serve-campaign/promos/img-promo-what-is-slack.jpg    1x,
+                  https://a.slack-edge.com/db0aea0/marketing/img/homepage/self-serve-campaign/promos/img-promo-what-is-slack@2x.jpg 2x
+                "
+              />
+              <span class="on-demand">ON-DEMAND</span>
+            </div>
+            <div class="card-content">
+              <p class="card-label">Webinar</p>
+              <h2 class="card-title">What is Slack?</h2>
+
+              <div class="card-link-template">
+                <a class="card-link" href="#">WATCH NOW</a>
+                <a class="card-link card-arrow-link" href="#"> &#x2192;</a>
+              </div>
+            </div>
+          </div>
+          <!-- </div> -->
+          <div class="card">
+            <div class="card-image-holder">
+              <img
+                alt="Smiley face inside of a speech bubble"
+                loading="lazy"
+                class="card-image"
+                data-src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-02.jpg"
+                data-srcset="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-02.jpg 1x, https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-02@2x.jpg 2x"
+                src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-02.jpg"
+                srcset="
+                  https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-02.jpg    1x,
+                  https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-02@2x.jpg 2x
+                "
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-label">Customer Stories</p>
+              <h2 class="card-title">Get inspired by real Slack customers</h2>
+
+              <div class="card-link-template">
+                <a class="card-link card-link-extra" href="#">READ STORIES</a>
+                <a class="card-link card-arrow-link card-link-extra" href="#">
+                  &#x2192;</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image-holder">
+              <img
+                alt="Megaphone, representing marketing teams"
+                loading="lazy"
+                class="card-image"
+                data-src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-03.jpg"
+                data-srcset="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-03.jpg 1x, https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-03@2x.jpg 2x"
+                src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-03.jpg"
+                srcset="
+                  https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-03.jpg    1x,
+                  https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-03@2x.jpg 2x
+                "
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-label">Solutions</p>
+              <h2 class="card-title">Learn how Slack can work for your team</h2>
+
+              <div class="card-link-template">
+                <a class="card-link card-link-extra" href="#"
+                  >EXPLORE SOLUTIONS</a
+                >
+                <a class="card-link card-arrow-link card-link-extra" href="#">
+                  &#x2192;</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-image-holder">
+              <img
+                alt="Cartoon rocket in flight"
+                loading="lazy"
+                class="card-image"
+                data-src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-04.jpg"
+                data-srcset="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-04.jpg 1x, https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-04@2x.jpg 2x"
+                src="https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-04.jpg"
+                srcset="
+                  https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-04.jpg    1x,
+                  https://a.slack-edge.com/96dd309/marketing/img/homepage/self-serve-campaign/promos/img-promo-04@2x.jpg 2x
+                "
+              />
+            </div>
+            <div class="card-content">
+              <p class="card-label">How-to</p>
+              <h2 class="card-title">
+                Start off on the right foot with Slack 101
+              </h2>
+
+              <div class="card-link-template">
+                <a class="card-link card-link-extra" href="#">LEARN HOW</a>
+                <a class="card-link card-arrow-link card-link-extra" href="#">
+                  &#x2192;</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="speechbox">
+          <div class="hand-icon">👋</div>
+          <div class="speechbox-icon">
+            Hey there 👋 Want to know something cool?
+          </div>
+
+          <svg class="x" width="10" height="10" viewBox="0 0 23 23" fill="none">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              fill="white"
+              d="M9.34583 11.2L0.384011 2.23818C-0.128004 1.72617 -0.128004 0.896026 0.384011 0.384011C0.896026 -0.128004 1.72617 -0.128004 2.23818 0.384011L11.2 9.34583L20.1618 0.384011C20.6738 -0.128004 21.504 -0.128004 22.016 0.384011C22.528 0.896026 22.528 1.72617 22.016 2.23818L13.0542 11.2L22.016 20.1618C22.528 20.6738 22.528 21.504 22.016 22.016C21.504 22.528 20.6738 22.528 20.1618 22.016L11.2 13.0542L2.23818 22.016C1.72617 22.528 0.896026 22.528 0.384011 22.016C-0.128003 21.504 -0.128003 20.6738 0.384011 20.1618L9.34583 11.2Z"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <section class="welcome-section">
+        <div class="container welcome-content">
+          <h2 class="welcome-title">Welcome to where the future works</h2>
+          <div class="welcome-btns">
+            <a href="#" class="btn free-btn">TRY FOR FREE</a>
+            <a href="#" class="btn sales-btn">TALK TO SALES</a>
+          </div>
+        </div>
+      </section>
+      <section class="container footer-list">
+        <svg
+          width="54"
+          height="54"
+          class="logo-icon"
+          viewBox="0 0 54 54"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g fill="none" fill-rule="evenodd">
+            <path
+              d="M19.712.133a5.381 5.381 0 0 0-5.376 5.387 5.381 5.381 0 0 0 5.376 5.386h5.376V5.52A5.381 5.381 0 0 0 19.712.133m0 14.365H5.376A5.381 5.381 0 0 0 0 19.884a5.381 5.381 0 0 0 5.376 5.387h14.336a5.381 5.381 0 0 0 5.376-5.387 5.381 5.381 0 0 0-5.376-5.386"
+              fill="#36C5F0"
+            ></path>
+            <path
+              d="M53.76 19.884a5.381 5.381 0 0 0-5.376-5.386 5.381 5.381 0 0 0-5.376 5.386v5.387h5.376a5.381 5.381 0 0 0 5.376-5.387m-14.336 0V5.52A5.381 5.381 0 0 0 34.048.133a5.381 5.381 0 0 0-5.376 5.387v14.364a5.381 5.381 0 0 0 5.376 5.387 5.381 5.381 0 0 0 5.376-5.387"
+              fill="#2EB67D"
+            ></path>
+            <path
+              d="M34.048 54a5.381 5.381 0 0 0 5.376-5.387 5.381 5.381 0 0 0-5.376-5.386h-5.376v5.386A5.381 5.381 0 0 0 34.048 54m0-14.365h14.336a5.381 5.381 0 0 0 5.376-5.386 5.381 5.381 0 0 0-5.376-5.387H34.048a5.381 5.381 0 0 0-5.376 5.387 5.381 5.381 0 0 0 5.376 5.386"
+              fill="#ECB22E"
+            ></path>
+            <path
+              d="M0 34.249a5.381 5.381 0 0 0 5.376 5.386 5.381 5.381 0 0 0 5.376-5.386v-5.387H5.376A5.381 5.381 0 0 0 0 34.25m14.336-.001v14.364A5.381 5.381 0 0 0 19.712 54a5.381 5.381 0 0 0 5.376-5.387V34.25a5.381 5.381 0 0 0-5.376-5.387 5.381 5.381 0 0 0-5.376 5.387"
+              fill="#E01E5A"
+            ></path>
+          </g>
+        </svg>
+        <ul class="footer-list-container">
+          <li class="footer-list-title"><strong>WHY SLACK?</strong></li>
+          <li><a href="#" class="footer-list-items">Slack vs. Email</a></li>
+          <li><a href="#" class="footer-list-items">Channels</a></li>
+          <li><a href="#" class="footer-list-items">Engagement</a></li>
+          <li><a href="#" class="footer-list-items">Scale</a></li>
+          <li><a href="#" class="footer-list-items">Watch the Demo</a></li>
+        </ul>
+        <ul class="footer-list-container">
+          <li class="footer-list-title"><strong>PRODUCT</strong></li>
+          <li><a href="#" class="footer-list-items">Features</a></li>
+          <li><a href="#" class="footer-list-items">Integrations</a></li>
+          <li><a href="#" class="footer-list-items">Enterprise</a></li>
+          <li><a href="#" class="footer-list-items">Solutions</a></li>
+        </ul>
+        <ul class="footer-list-container">
+          <li class="footer-list-title"><strong>PRICING</strong></li>
+          <li><a href="#" class="footer-list-items">Plans</a></li>
+          <li><a href="#" class="footer-list-items">Paid vs. Free</a></li>
+        </ul>
+        <ul class="footer-list-container">
+          <li class="footer-list-title"><strong>RESOURCES</strong></li>
+          <li><a href="#" class="footer-list-items">Partners</a></li>
+          <li><a href="#" class="footer-list-items">Developers</a></li>
+          <li><a href="#" class="footer-list-items">Community</a></li>
+          <li><a href="#" class="footer-list-items">Apps</a></li>
+          <li><a href="#" class="footer-list-items">Blog</a></li>
+          <li><a href="#" class="footer-list-items">Help Center</a></li>
+          <li><a href="#" class="footer-list-items">Events</a></li>
+        </ul>
+        <ul class="footer-list-container">
+          <li class="footer-list-title"><strong>COMPANY</strong></li>
+          <li><a href="#" class="footer-list-items">About Us</a></li>
+          <li><a href="#" class="footer-list-items">Leadership</a></li>
+          <li><a href="#" class="footer-list-items">Investor Relations</a></li>
+          <li><a href="#" class="footer-list-items">News</a></li>
+          <li><a href="#" class="footer-list-items">Media Kit</a></li>
+          <li><a href="#" class="footer-list-items">Careers</a></li>
+        </ul>
+      </section>
+      <section class="container footer-socials">
+        <a href="#" class="socials-links">Status</a>
+        <a href="#" class="socials-links">Privacy</a>
+        <a href="#" class="socials-links">Terms</a>
+        <a href="#" class="socials-links">Cookie Preferences</a>
+        <a href="#" class="socials-links">Contact Us</a>
+        <a href="#" class="socials-links change-region-link"
+          ><svg
+            class="globe-icon down-icon socials-links"
+            width="18"
+            height="18"
+            viewBox="0 0 100 100"
+          >
+            <path
+              d="M50.008 5.874c-11.308 0-22.613 4.3-31.219 12.906-17.211 17.211-17.211 45.226 0 62.438 17.211 17.21 45.195 17.21 62.406 0 17.212-17.212 17.243-45.227.032-62.438-8.606-8.606-19.912-12.906-31.22-12.906zm-3.125 6.125h.125v34.969H28.914c.58-10.29 4.095-20.385 10.594-28.157 2.27-2.715 4.757-4.983 7.375-6.812zm6.125 0h.062a38 38 0 0 1 7.407 6.812c6.498 7.772 10.014 17.866 10.593 28.157H53.008v-34.97zm-18.094 2.937c-7.508 8.978-11.557 20.412-12.156 32.032H11.977c.687-8.725 4.343-17.25 11.03-23.938a38.166 38.166 0 0 1 11.907-8.094zm30.219.062a38.176 38.176 0 0 1 11.812 8.063c6.685 6.685 10.369 15.19 11.063 23.906H77.227c-.598-11.59-4.623-23-12.094-31.969zm-53.156 37.97h10.78c.59 11.638 4.638 23.07 12.157 32.062a38.133 38.133 0 0 1-11.875-8.063c-6.7-6.7-10.376-15.258-11.062-24zm16.937 0h18.094V88.03h-.063c-2.644-1.838-5.146-4.135-7.437-6.875-6.512-7.787-10.025-17.876-10.594-28.188zm24.094 0H71.07c-.568 10.31-4.082 20.4-10.593 28.187-2.298 2.747-4.817 5.034-7.47 6.875V52.967zm24.219 0h10.812c-.679 8.741-4.39 17.295-11.094 24A38.07 38.07 0 0 1 65.04 85.06c.01-.011.022-.02.031-.031 7.52-8.992 11.568-20.424 12.157-32.063z"
+            ></path></svg
+          ><span>Change Region</span
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="down-icon socials-links"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            /></svg
+        ></a>
+        <a href="#" class="socials-links download-link"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="down-icon download-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+            />
+          </svg>
+          <span>Download Slack</span></a
+        >
+
+        <a href="#" class="socials-links"
+          ><svg
+            class="twitter-icon socials-icons-links"
+            width="20"
+            height="20"
+            version="1"
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M31.993 6.077c-1.177.523-2.44.876-3.77 1.033 1.355-.812 2.396-2.098 2.887-3.63-1.27.75-2.673 1.3-4.168 1.592C25.744 3.797 24.038 3 22.15 3c-3.626 0-6.563 2.938-6.563 6.563 0 .514.057 1.016.17 1.496C10.3 10.783 5.464 8.17 2.227 4.2c-.565.97-.89 2.098-.89 3.3 0 2.28 1.16 4.287 2.92 5.465-1.076-.035-2.088-.33-2.973-.82v.08c0 3.182 2.26 5.835 5.264 6.438-.55.15-1.13.23-1.73.23-.423 0-.833-.04-1.233-.117.834 2.606 3.26 4.504 6.13 4.558-2.245 1.76-5.075 2.81-8.15 2.81-.53 0-1.053-.03-1.566-.09C2.905 27.914 6.355 29 10.062 29c12.072 0 18.675-10 18.675-18.675 0-.284-.008-.568-.02-.85 1.283-.925 2.395-2.08 3.276-3.398z"
+            ></path></svg
+        ></a>
+        <a href="#" class="socials-links"
+          ><svg
+            class="facebook-icon socials-icons-links"
+            width="20"
+            height="20"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.115 0H.885A.883.883 0 0 0 0 .885v14.23c0 .49.395.885.885.885h7.659V9.803h-2.09v-2.4h2.09V5.62c0-2.069 1.27-3.189 3.104-3.189.875 0 1.643.053 1.867.096v2.155h-1.291c-1.003 0-1.184.469-1.184 1.173v1.547h2.379l-.31 2.4H11.04V16h4.075c.49 0 .885-.395.885-.885V.885A.883.883 0 0 0 15.115 0z"
+              fill-rule="evenodd"
+            ></path></svg
+        ></a>
+        <a href="#" class="socials-links"
+          ><svg
+            version="1"
+            class="youtube-icon socials-icons-links"
+            width="20"
+            height="20"
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M31.67 9.18s-.312-2.354-1.27-3.39c-1.218-1.358-2.58-1.366-3.206-1.443C22.717 4 16.002 4 16.002 4h-.015s-6.715 0-11.19.347c-.626.077-1.988.085-3.206 1.443C.635 6.826.32 9.18.32 9.18S0 11.94 0 14.7v2.59c0 2.762.32 5.522.32 5.522s.312 2.352 1.27 3.386c1.22 1.358 2.816 1.317 3.528 1.46 2.56.26 10.877.342 10.877.342s6.722-.012 11.2-.355c.624-.08 1.987-.088 3.204-1.446.956-1.036 1.27-3.388 1.27-3.388s.32-2.76.32-5.523V14.7c0-2.76-.32-5.522-.32-5.522z"
+            ></path>
+            <path fill="#FFF" d="M12 10v12l10-6"></path></svg
+        ></a>
+        <a href="#" class="socials-links"
+          ><svg
+            class="indeed-icon socials-icons-links"
+            width="20"
+            height="20"
+            viewBox="0 0 16 16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.816 0C15.466 0 16 .512 16 1.152v13.696c0 .63-.533 1.152-1.184 1.152H1.184C.534 16 0 15.477 0 14.848V1.152C0 .512.533 0 1.184 0zM3.563 4.96a1.382 1.382 0 0 0 0-2.763c-.768 0-1.376.619-1.376 1.376 0 .768.608 1.387 1.376 1.387zm10.069 4.49c0-2.058-.437-3.637-2.848-3.637-1.152 0-1.92.63-2.24 1.227h-.032V5.995H6.24v7.637h2.368V9.856c0-.992.181-1.963 1.419-1.963 1.216 0 1.237 1.142 1.237 2.027v3.712h2.368zM2.368 13.633h2.379V5.995H2.368z"
+              fill-rule="evenodd"
+            ></path></svg
+        ></a>
+      </section>
+      <section class="container footer">
+        <p>
+          ©2022 Slack Technologies, LLC, a Salesforce company. All rights
+          reserved. Various trademarks held by their respective owners.
+        </p>
+      </section>
+    </header>
+  </body>
+</html>
